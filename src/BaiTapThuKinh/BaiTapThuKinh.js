@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import dataGlasses from '../Data/dataGlasses.json'
+import './BaiTapThuKinh.css'
 
 export default class BaiTapThuKinh extends Component {
 
 
     state = {
-        glassesCurrent :{
+        glassesCurrent: {
         "id": 2,
         "price": 50,
         "name": "GUCCI G8759H",
@@ -16,34 +17,32 @@ export default class BaiTapThuKinh extends Component {
     
     renderGlassesList = () => {
         return dataGlasses.map((glassesItem,index) => {
-            return <img onClick={() => {
-                this.changeClasses (glassesItem)
-            }} className='ml-2 p-1 border border-width-1' style={{width:'110px',cursor:'pointer'}} src={glassesItem.url} key={index} />
+            return <img onClick={() => {this.changeClasses (glassesItem) }} 
+            className='ml-2 p-1 border border-width-1' style={{width:'110px',cursor:'pointer'}} 
+            src={glassesItem.url} key={index} />
         })
-
     }
+
     changeClasses = (newGlasses) => {
         this.setState ({
             glassesCurrent:newGlasses
-        })
-
-        
+        })     
     }
 
 
     render() {
-        const keyFrame = `@keyframes animChangeGlasses${Date.now()} {
-            form {
-                width:0;
-                transform:rotate(45deg);
-                opacity:0;
-            }
-            to {
-                width:150px;
-                opacity:0.7;
-                transform: rotate(0deg);
-            }
-        }`
+        // const keyFrame = `@keyframes animChangeGlasses${Date.now()} {
+        //     form {
+        //         width:0;
+        //         transform:rotate(45deg);
+        //         opacity:0;
+        //     }
+        //     to {
+        //         width:150px;
+        //         opacity:0.7;
+        //         transform: rotate(0deg);
+        //     }
+        // }`;
 
         
 
@@ -52,8 +51,8 @@ export default class BaiTapThuKinh extends Component {
             top: '75px',
             right: '70px',
             opacity: '0.7',
-            transform: 'rotate(0deg)',
-            animation: `animChangeGlasses${Date.now()} 1s`
+            // transform: 'rotate(0deg)',
+            // animation: `animChangeGlasses${Date.now()} 1s`
         }
 
         const infoGlass = {
@@ -67,9 +66,9 @@ export default class BaiTapThuKinh extends Component {
         }
         return (
             <div style={{ backgroundImage: 'url(./glassesImage/background.jpg)', backgroundSize: '1500px', minHeight: '1500px' }}>
-                <style>
+                {/* <style>
                     {keyFrame};
-                </style>
+                </style> */}
                 <div style={{ backgroundColor: 'rgba(0,0,0,.5)', minHeight: '1500px' }}>
                     <h3 style={{ backgroundColor: 'rgba(0,0,0,.2)' }} className='text-center text-light p-5'>TRY CLASSES APP ONLINE</h3>
 
@@ -78,7 +77,7 @@ export default class BaiTapThuKinh extends Component {
                             <div className="col-6">
                                 <div className='position-relative'>
                                     <img className='position-absolute' style={{ width: '250px' }} src="./glassesImage/model.jpg" alt="model" />
-                                    <img style={styleGlasses} className='position-absolute' src={this.state.glassesCurrent.url} alt="" />
+                                    <img style={styleGlasses} className='position-absolute glassesStyle' src={this.state.glassesCurrent.url} alt="" />
                                     <div style={infoGlass} className='position-relative '>
                                         <span style={{color:'blue',fontSize:'17px'}} className='font-weight-bold'>{this.state.glassesCurrent.name}</span> <br />
                                         <span style={{fontSize:'14px',fontWeight:'400'}}>{this.state.glassesCurrent.desc}</span>
