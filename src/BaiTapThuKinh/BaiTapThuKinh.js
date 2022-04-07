@@ -31,18 +31,18 @@ export default class BaiTapThuKinh extends Component {
 
 
     render() {
-        // const keyFrame = `@keyframes animChangeGlasses${Date.now()} {
-        //     form {
-        //         width:0;
-        //         transform:rotate(45deg);
-        //         opacity:0;
-        //     }
-        //     to {
-        //         width:150px;
-        //         opacity:0.7;
-        //         transform: rotate(0deg);
-        //     }
-        // }`;
+        const keyFrame = `@keyframes animChangeGlasses${Date.now()} {
+            from {
+                width:0;
+                transform:rotate(45deg);
+                opacity:0;
+            }
+            to {
+                width:150px;
+                opacity:0.7;
+                transform: rotate(0deg);
+            }
+        }`;
 
         
 
@@ -51,8 +51,8 @@ export default class BaiTapThuKinh extends Component {
             top: '75px',
             right: '70px',
             opacity: '0.7',
-            // transform: 'rotate(0deg)',
-            // animation: `animChangeGlasses${Date.now()} 1s`
+            transform: 'rotate(0deg)',
+            animation: `animChangeGlasses${Date.now()} 1s`
         }
 
         const infoGlass = {
@@ -66,9 +66,9 @@ export default class BaiTapThuKinh extends Component {
         }
         return (
             <div style={{ backgroundImage: 'url(./glassesImage/background.jpg)', backgroundSize: '1500px', minHeight: '1500px' }}>
-                {/* <style>
+                <style>
                     {keyFrame};
-                </style> */}
+                </style>
                 <div style={{ backgroundColor: 'rgba(0,0,0,.5)', minHeight: '1500px' }}>
                     <h3 style={{ backgroundColor: 'rgba(0,0,0,.2)' }} className='text-center text-light p-5'>TRY CLASSES APP ONLINE</h3>
 
